@@ -1,0 +1,152 @@
+/* style.css (Vue + TS To-Do List) */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.todo-app {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+h1 {
+    color: #4a90e2; /* Warna biru cerah */
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+/* --- Input Tambah Tugas --- */
+.add-todo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.add-todo input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.add-todo button {
+    padding: 12px 20px;
+    background-color: #5cb85c; /* Hijau */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.add-todo button:hover {
+    background-color: #4cae4c;
+}
+
+/* --- Filter Tombol --- */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.filters button {
+    padding: 8px 15px;
+    background-color: #e0e0e0;
+    color: #555;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.filters button.active {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.filters button:hover:not(.active) {
+    background-color: #d0d0d0;
+}
+
+/* --- Daftar Tugas --- */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.todo-list li:last-child {
+    border-bottom: none;
+}
+
+.todo-list li input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.2); /* Perbesar checkbox */
+    cursor: pointer;
+}
+
+.todo-list li span {
+    flex-grow: 1;
+    font-size: 1.05em;
+    color: #333;
+}
+
+.todo-list li.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.todo-list li button {
+    background-color: #dc3545; /* Merah */
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s;
+}
+
+.todo-list li button:hover {
+    background-color: #c82333;
+}
+
+.todo-list p { /* Untuk pesan "Tidak ada tugas" */
+    color: #888;
+    margin-top: 20px;
+}
+
+.remaining-todos {
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9em;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
