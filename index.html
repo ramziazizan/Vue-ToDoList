@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue + TS To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app" class="todo-app">
+        <h1>Daftar Tugas Vue + TS</h1>
+
+        <div class="add-todo">
+            <input 
+                type="text" 
+                v-model="newTodoText" 
+                @keyup.enter="addTodo" 
+                placeholder="Tambahkan tugas baru..."
+            >
+            <button @click="addTodo">Tambah</button>
+        </div>
+
+        <div class="filters">
+            <button @click="filter = 'all'" :class="{ active: filter === 'all' }">Semua</button>
+            <button @click="filter = 'active'" :class="{ active: filter === 'active' }">Aktif</button>
+            <button @click="filter = 'completed'" :class="{ active: filter === 'completed' }">Selesai</button>
+        </div>
+
+        <ul class="todo-list">
+            <li v-for="todo in filteredTodos" :key="todo.id" :class="{ completed: todo.completed }">
+                <input type="checkbox" v-model="todo.completed">
+                <span>{{ todo.text }}</span>
+                <button @click="removeTodo(todo.id)">Hapus</button>
+            </li>
+            <p v-if="filteredTodos.length === 0 && todos.length > 0 && filter === 'active'">Tidak ada tugas aktif.</p>
+            <p v-if="filteredTodos.length === 0 && todos.length > 0 && filter === 'completed'">Tidak ada tugas selesai.</p>
+            <p v-if="todos.length === 0">Tidak ada tugas. Tambahkan yang baru!</p>
+        </ul>
+
+        <p class="remaining-todos">{{ remainingTodosCount }} tugas tersisa</p>
+    </div>
+    
+    <script src="script.js"></script> 
+</body>
+              </html>
